@@ -147,15 +147,15 @@
 						console.log("opts", JSON.stringify(opts));
 						$("#endpoint").val(opts && opts.endpoint ? opts.endpoint : '');
 						$("#pebblename").val(opts && opts.pebblename ? opts.pebblename : '');
-						if (opts.radio == 'mgdl_form'){
-							$("input[value='" + opts.radio + "']").attr("checked",true).checkboxradio("refresh");
+						if (opts.units == 'mgdl_form'){
+							$("input[value='" + opts.units + "']").attr("checked",true).checkboxradio("refresh");
 							document.getElementById('mgdl_form').style.display = 'block';
 							document.getElementById('mmol_form').style.display = 'none';
 						} else {
-							$("input[value='mgdl_form']").attr("checked",false).checkboxradio("refresh");
+							$("input[value='mgdl']").attr("checked",false).checkboxradio("refresh");
 							document.getElementById('mmol_form').style.display = 'block';
 							document.getElementById('mgdl_form').style.display = 'none';
-							$("input[value='" + opts.radio + "']").attr("checked",true).checkboxradio("refresh");
+							$("input[value='" + opts.units + "']").attr("checked",true).checkboxradio("refresh");
 						}
 					}else{
 						console.log("no data");
