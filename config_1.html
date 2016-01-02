@@ -22,8 +22,7 @@
 	            $(document).ready(function() {
 	                // hash listener
 	                $('#generate-hash').click( function() {
-	                    hash = Sha1.hash($('#secretAPI').val());
-    	                $('#hashAPI').val(hash);
+	                    $('#hashAPI').val(Sha1.hash($('#secretAPI').val()));
     	                });
 	            });
 	        </script>
@@ -98,6 +97,7 @@
 				  $('#status').text('initializing');
 				  function saveOptions() {
 					$('#status').text('prepping save');
+			                $('#hashAPI').val(Sha1.hash($('#secretAPI').val()));
 					var options = {
 						'endpoint': $("#endpoint").val(),
 						'pebblename' : $("#pebblename").val(),
