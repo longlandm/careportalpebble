@@ -103,7 +103,7 @@
 						'pebblename' : $("#pebblename").val(),
 						'secretAPI' : $("#secretAPI").val(),
 						'radio' : $('input[name=radio_units]:checked').val(),
-						'hashAPI' :
+						'hashAPI' : $("#secretAPI").val()
 					}
 					try {
 					  if (window.localStorage && window.localStorage.setItem) {
