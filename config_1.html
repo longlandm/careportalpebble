@@ -22,10 +22,8 @@
 	            $(document).ready(function() {
 	                // hash listener
 	                $('#generate-hash').click( function() {
-	                    var t = new Date();
 	                    hash = Sha1.hash($('#secretAPI').val());
-	                    $('#hash-time').html(((new Date() - t))+'ms');
-    	                $('#hash').val(hash);
+    	                $('#hashAPI').val(hash);
     	                });
 	            });
 	        </script>
@@ -66,17 +64,16 @@
 				<input type="text" name="pebblename" id="pebblename" onfocusout="updateHash(this)"/>
 			</div>
 			<div data-role="fieldcontain">
-				<label for="Secret API">
-				<strong>
-					Enter Secret API:
-				</strong>
+				<label for="SecretAPI">
+				<strong>Enter Secret API:</strong>
 				<input type="text" name="secretAPI" id="secretAPI" />
 			</div>
 			<div data-role="fieldcontain">
-				<label for="Hash API">
-				<strong>
-					Hash API:
-				</strong>
+				<button type="button" name="generate-hash" id="generate-hash">Generate API Hash</button>
+			</div>
+			<div data-role="fieldcontain">
+				<label for="HashAPI">
+				<strong>Secret API Hash :</strong>
 				<input type="text" id="hashAPI" name="hashAPI" id="hashAPI" readonly />
 			</div>
 			<div class="ui-body ui-body-b">
@@ -209,9 +206,6 @@
 					document.getElementById(id + '_form').style.display = 'none';
 					document.getElementById(other_id + '_form').style.display = 'block';
 				}
-			}
-			function updateHash(obj) {
-				$("#hashAPI").val(Sha1.hash($('#secretAPI').val()))
 			}
 		</script>
 	</body>
