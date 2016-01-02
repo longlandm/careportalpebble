@@ -7,14 +7,28 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
-		<script src="http://code.jquery.com/jquery-2.1.1.js"></script>
-		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 
 		<style type='text/css'>
 			.hidden {display: none; }
 			#divs div { display:none; }
 		</style>
 
+		<script src="http://code.jquery.com/jquery-2.1.1.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+		// SHA-1 encryption
+		<script src="http://www.movable-type.co.uk/scripts/js/crypto/sha1.js"  />
+		
+	        <script>
+	            $(document).ready(function() {
+	                // hash listener
+	                $('#generate-hash').click( function() {
+	                    var t = new Date();
+	                    hash = Sha1.hash($('#secretAPI').val());
+	                    $('#hash-time').html(((new Date() - t))+'ms');
+    	                $('#hash').val(hash);
+    	                });
+	            });
+	        </script>
 	</head>
 	<body>
 		<div data-role="page" id="main">
@@ -49,7 +63,7 @@
 				<strong>
 					Enter Pebble Name:
 				</strong>
-				<input type="text" name="pebblename" id="pebblename" />
+				<input type="text" name="pebblename" id="pebblename" onfocusout="updateHash(this)"/>
 			</div>
 			<div data-role="fieldcontain">
 				<label for="Secret API">
@@ -57,6 +71,13 @@
 					Enter Secret API:
 				</strong>
 				<input type="text" name="secretAPI" id="secretAPI" />
+			</div>
+			<div data-role="fieldcontain">
+				<label for="Hash API">
+				<strong>
+					Hash API:
+				</strong>
+				<input type="text" id="hashAPI" name="hashAPI" id="hashAPI" readonly />
 			</div>
 			<div class="ui-body ui-body-b">
 				<fieldset class="ui-grid-a">
@@ -66,6 +87,8 @@
 			</div>
 		</div>
 		<script type='text/javascript'>
+		
+		
 			$(window).load(function(){
 			if (console && console.log && console.log.call) {
 				  } else {
@@ -83,6 +106,7 @@
 						'pebblename' : $("#pebblename").val(),
 						'secretAPI' : $("#secretAPI").val(),
 						'radio' : $('input[name=radio_units]:checked').val(),
+						'hashAPI' :
 					}
 					try {
 					  if (window.localStorage && window.localStorage.setItem) {
@@ -128,15 +152,11 @@
 							$("input[value='" + opts.radio + "']").attr("checked",true).checkboxradio("refresh");
 							document.getElementById('mgdl_form_fields').style.display = 'block';
 							document.getElementById('mmol_form_fields').style.display = 'none';
-							$("#mglowbg").val(opts.lowbg).selectmenu("refresh");
-							$("#mghighbg").val(opts.highbg).selectmenu("refresh");
 						} else {
 							$("input[value='mgdl_form']").attr("checked",false).checkboxradio("refresh");
 							document.getElementById('mmol_form_fields').style.display = 'block';
 							document.getElementById('mgdl_form_fields').style.display = 'none';
 							$("input[value='" + opts.radio + "']").attr("checked",true).checkboxradio("refresh");
-							$("#mmlowbg").val(opts.lowbg).selectmenu("refresh");
-							$("#mmhighbg").val(opts.highbg).selectmenu("refresh");
 						}
 					}else{
 						console.log("no data");
@@ -189,6 +209,9 @@
 					document.getElementById(id + '_form').style.display = 'none';
 					document.getElementById(other_id + '_form').style.display = 'block';
 				}
+			}
+			function updateHash(obj) {
+				$("#hashAPI").val(Sha1.hash($('#secretAPI').val()))
 			}
 		</script>
 	</body>
