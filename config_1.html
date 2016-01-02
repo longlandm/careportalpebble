@@ -128,8 +128,8 @@
 					opts = (_raw && _raw.length && _raw.length > 5 ? JSON.parse(_raw) : { });
 					$("#endpoint").val(opts && opts.endpoint ? opts.endpoint : '');
 					$("#pebblename").val(opts && opts.pebblename ? opts.pebblename : '');
-					$("input[value='mmol_form']").attr("checked",false).checkboxradio("refresh");
-					$("input[value='mgdl_form']").attr("checked",true).checkboxradio("refresh");
+					$("input[value='mmol']").attr("checked",false).checkboxradio("refresh");
+					$("input[value='mgdl']").attr("checked",true).checkboxradio("refresh");
 					document.getElementById('mgdl_form').style.display = 'block';
 					document.getElementById('mmol_form').style.display = 'none';
 				  }
