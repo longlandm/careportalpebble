@@ -37,9 +37,9 @@
 			<div data-role="fieldcontain">
 				<fieldset data-role="controlgroup" id="Radio_Options" data-type="horizontal" >
 					<legend><strong>Choose mg/dl or mmol:</strong></legend>
-					<input name="radio_units" type="radio" id="mgdl_form" onchange="onchange_handler(this, 'mgdl');" onmouseup="onchange_handler(this, 'mgdl');" value="mgdl_form"/>
+					<input name="radio_units" type="radio" id="mgdl_form" onchange="onchange_handler(this, 'mgdl');" onmouseup="onchange_handler(this, 'mgdl');" value="mgdl"/>
 					<label for="mgdl_form">mg/dl</label>
-					<input type="radio" name="radio_units" id="mmol_form" value="mmol_form" onchange="onchange_handler(this, 'mmol');" onmouseup="onchange_handler(this, 'mmol');">
+					<input type="radio" name="radio_units" id="mmol_form" value="mmol" onchange="onchange_handler(this, 'mmol');" onmouseup="onchange_handler(this, 'mmol');">
 					<label for="mmol_form">mmol</label>
 				</fieldset>
 			</div>
@@ -104,7 +104,7 @@
 						'endpoint': $("#endpoint").val(),
 						'pebblename' : $("#pebblename").val(),
 						'secretAPI' : $("#secretAPI").val(),
-						'radio' : $('input[name=radio_units]:checked').val(),
+						'units' : $('input[name=radio_units]:checked').val(),
 						'hashAPI' : $("#hashAPI").val()
 					}
 					try {
@@ -127,11 +127,11 @@
 						? window.localStorage.cgmOpts : null;
 					opts = (_raw && _raw.length && _raw.length > 5 ? JSON.parse(_raw) : { });
 					$("#endpoint").val(opts && opts.endpoint ? opts.endpoint : '');
-					$("#pebblename").val(opts && opts.t1name ? opts.t1name : '');
+					$("#pebblename").val(opts && opts.pebblename ? opts.pebblename : '');
 					$("input[value='mmol_form']").attr("checked",false).checkboxradio("refresh");
 					$("input[value='mgdl_form']").attr("checked",true).checkboxradio("refresh");
-					document.getElementById('mgdl_form_fields').style.display = 'block';
-					document.getElementById('mmol_form_fields').style.display = 'none';
+					document.getElementById('mgdl_form').style.display = 'block';
+					document.getElementById('mmol_form').style.display = 'none';
 				  }
 				  
 				  function getOptions() {
@@ -146,15 +146,15 @@
 						$('#status').text(['has opts', JSON.stringify(opts)].join(' '));
 						console.log("opts", JSON.stringify(opts));
 						$("#endpoint").val(opts && opts.endpoint ? opts.endpoint : '');
-						$("#pebblename").val(opts && opts.t1name ? opts.t1name : '');
+						$("#pebblename").val(opts && opts.pebblename ? opts.pebblename : '');
 						if (opts.radio == 'mgdl_form'){
 							$("input[value='" + opts.radio + "']").attr("checked",true).checkboxradio("refresh");
-							document.getElementById('mgdl_form_fields').style.display = 'block';
-							document.getElementById('mmol_form_fields').style.display = 'none';
+							document.getElementById('mgdl_form').style.display = 'block';
+							document.getElementById('mmol_form').style.display = 'none';
 						} else {
 							$("input[value='mgdl_form']").attr("checked",false).checkboxradio("refresh");
-							document.getElementById('mmol_form_fields').style.display = 'block';
-							document.getElementById('mgdl_form_fields').style.display = 'none';
+							document.getElementById('mmol_form').style.display = 'block';
+							document.getElementById('mgdl_form').style.display = 'none';
 							$("input[value='" + opts.radio + "']").attr("checked",true).checkboxradio("refresh");
 						}
 					}else{
