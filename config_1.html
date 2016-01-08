@@ -90,7 +90,6 @@
 					  }
 					};
 				  }
-
 				  $('#status').text('initializing');
 				  function saveOptions() {
 					$('#status').text('prepping save');
@@ -168,7 +167,6 @@
 					}
 					
 				}
-
 				  $().ready(function() {
 					if (window.location.hash.indexOf("debug") > -1) {
 					  $('#status').removeClass('hidden');
@@ -177,17 +175,14 @@
 					$('#status').text('setting up events');
 					//localStorage.clear();
 					
-
 					$("#b-cancel").click(function() {
 					  console.log("Cancel");
 					  $('#status').text('canceling');
 					  document.location = "pebblejs://close";
 					});
-
 					$("#b-submit").click(function() {
 					  console.log("Submit");
 					  $('#status').text('submitting');
-
 					  var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
 					  console.log("Warping to: " + location);
 					  $('#status').text('closing');
