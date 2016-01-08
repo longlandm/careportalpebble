@@ -103,10 +103,10 @@
 						'hashAPI' : $("#hashAPI").val()
 					}
 					// fix for the careportal entry and not being able to put special characters in names
-					if (options.units == 'mgdl')
-					{
-						options.units = 'mg/dl'
-					}
+					//if (options.units == 'mgdl')
+					//{
+					//	options.units = 'mg/dl'
+					//}
 					try {
 					  if (window.localStorage && window.localStorage.setItem) {
 						window.localStorage.setItem('cgmOpts', JSON.stringify(options));
