@@ -36,29 +36,31 @@
 						</select>
 					</form>
 				</div>
-				<form name="US_Share" id="US_Share" style="display:none">
-					<label for="accountName">Share Username: </label>
-					<input type="text" name="accountName" id="accountName" value="" autocapitalize="off" autocorrect="off"/>
-					<label for="password">Share Password: </label>
-					<input type="password" name="password" id="password" value="" />
-					<label for="remember">Remember Password</label>
-					<input type="checkbox" name="remember" id="remember" />
-				</form>
-				<form name="Nightscout" id="Nightscout" style="display:none">
-					<div data-role="fieldcontain">
-						<script>
-							function clearFunction() {
-								document.getElementById("message").innerHTML = "ie:https://name.azurewebsites.net/pebble";
-							}
-						</script>
-						<label for="endpoint">
-							<strong>Enter Data Endpoint:
-							</strong>
-						</label>
-						<input type="text" name="endpoint" id="endpoint" autocapitalize="off" autocorrect="off"/>
-						<div id="message">ie:https://name.azurewebsites.net/pebble</div>
-					</div>
-				</form>      
+				<div>
+					<form name="US_Share" id="US_Share" style="display:none">
+						<label for="accountName">Share Username: </label>
+						<input type="text" name="accountName" id="accountName" value="" autocapitalize="off" autocorrect="off"/>
+						<label for="password">Share Password: </label>
+						<input type="password" name="password" id="password" value="" />
+						<label for="remember">Remember Password</label>
+						<input type="checkbox" name="remember" id="remember" />
+					</form>
+					<form name="Nightscout" id="Nightscout" style="display:none">
+						<div data-role="fieldcontain">
+							<script>
+								function clearFunction() {
+									document.getElementById("message").innerHTML = "ie:https://name.azurewebsites.net/pebble";
+								}
+							</script>
+							<label for="endpoint">
+								<strong>Enter Data Endpoint:
+								</strong>
+							</label>
+							<input type="text" name="endpoint" id="endpoint" autocapitalize="off" autocorrect="off"/>
+							<div id="message">ie:https://name.azurewebsites.net/pebble</div>
+						</div>
+					</form>      
+				</div>
 				<tt class="hidden" id="status"></tt>
 			</div>
 			<div data-role="fieldcontain">
