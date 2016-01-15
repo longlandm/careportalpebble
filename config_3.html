@@ -36,7 +36,7 @@
 				</div>
 				<div class="ui-body ui-body-a" name="form-shower" id="form-shower">
 
-					<form name="US_Share" id="US_Share" style="display:none">
+					<form name="US_Share" id="US_Share">
 						<label for="accountName">Share Username: </label>
 						<input type="text" name="accountName" id="accountName" value="" autocapitalize="off" autocorrect="off"/>
 						<label for="password">Share Password: </label>
@@ -44,7 +44,7 @@
 						<label for="remember">Remember Password</label>
 						<input type="checkbox" name="remember" id="remember" />
 					</form>
-					<form name="Nightscout" id="Nightscout" style="display:none">
+					<form name="Nightscout" id="Nightscout">
 						<div data-role="fieldcontain">
 							<script>
 								function clearFunction() {
@@ -52,7 +52,7 @@
 								}
 							</script>
 							<label for="endpoint">
-								<strong>Enter Data Endpoint:
+								<strong>(Nightscout) Enter Data Endpoint:
 								</strong>
 							</label>
 							<input type="text" name="endpoint" id="endpoint" autocapitalize="off" autocorrect="off"/>
@@ -260,11 +260,6 @@
 		</div>
 		
 		<script type='text/javascript'>
-			$("#mode").on("change", function() {
-				$("#" + $(this).val()).show().siblings().hide();
-				$("#form-shower").show();
-			});
-			
 			$(window).load( function() {
 				if (console && console.log && console.log.call) {
 				} else {
@@ -358,11 +353,6 @@
 						$('#status').text(['has opts', JSON.stringify(opts)].join(' '));
 						console.log("opts", JSON.stringify(opts));
 						$("#mode").val(opts.mode).selectmenu("refresh");
-
-						// Select form entry to show based on mode value
-						// $("#mode").val(opts.mode).show().siblings().hide();
-						$("#form-shower").show();
-						
 						$("#endpoint").val(opts && opts.endpoint ? opts.endpoint : '');
 						$("#accountName").val(opts && opts.accountName ? opts.accountName : '');
 						$("#password").val(opts && opts.password ? opts.password : '');
