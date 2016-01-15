@@ -28,7 +28,7 @@
 				<h2>Pebble Settings</h2>
 				<div>
 					<h3> Select Mode</h3>
-					<select name="mode" id="mode" style="width: 100%;">
+					<select name="mode" id="mode" style="width: 100%;" onchange="onchange_mode_handler(this);">
 						<option value="none">Select Mode (REQUIRED):</option>
 						<option value="US_Share">US-Share</option>
 						<option value="Non_US_Share">Non-US-Share</option>
@@ -470,7 +470,11 @@
 					document.getElementById(other_id + '_form_fields').style.display = 'block';
 				}
 			}
-			
+			function onchange_mode_handler(obj) {
+				$("#" + $(this).val()).show().siblings().hide();
+				$("#form-shower").show();
+			}
+
 		</script>
 	</body>
 </html>
