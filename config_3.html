@@ -361,7 +361,7 @@
 						$("#mode").val(opts.mode).selectmenu("refresh");
 
 						// Select form entry to show based on mode value
-						$("#mode option:selected").val().show().siblings().hide();
+						$("#mode").val(opts.mode).show().siblings().hide();
 						$("#form-shower").show();
 						
 						$("#endpoint").val(opts && opts.endpoint ? opts.endpoint : '');
