@@ -26,18 +26,16 @@
 		<div data-role="page" id="main">
 			<div data-role="header" class="jqm-header">
 				<h2>Pebble Settings</h2>
-				<div class="ui-body ui-body-a" id="form-shower">
-					<form>
-						<select name="mode" id="mode" style="width: 100%;">
-							<option value="none">Select Mode (REQUIRED):</option>
-							<option value="US_Share">US-Share</option>
-							<option value="Non_US_Share">Non-US-Share</option>
-							<option value="Nightscout">Nightscout</option>
-						</select>
-					</form>
-<!--				</div>
 				<div>
--->
+					<select name="mode" id="mode" style="width: 100%;">
+						<option value="none">Select Mode (REQUIRED):</option>
+						<option value="US_Share">US-Share</option>
+						<option value="Non_US_Share">Non-US-Share</option>
+						<option value="Nightscout">Nightscout</option>
+					</select>
+				</div>
+				<div class="ui-body ui-body-a" name="form-shower" id="form-shower">
+
 					<form name="US_Share" id="US_Share" style="display:none">
 						<label for="accountName">Share Username: </label>
 						<input type="text" name="accountName" id="accountName" value="" autocapitalize="off" autocorrect="off"/>
