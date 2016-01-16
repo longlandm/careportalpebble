@@ -29,7 +29,7 @@
 				
 				<div class="ui-body ui-body-a" id="form-shower">
 					<form>
-						<select name="mode" id="mode" style="width: 100%;" onchange="onchange_mode_handler(this);">
+						<select name="mode" id="mode" style="width: 100%;">
 							<option value="none">Select Mode (REQUIRED):</option>
 							<option value="US_Share">US-Share</option>
 							<option value="Non_US_Share">Non-US-Share</option>
@@ -260,6 +260,12 @@
 		</div>
 		
 		<script type='text/javascript'>
+
+			$("#mode").on("change", function() {
+				$("#" + $(this).val()).show().siblings().hide();
+				$("#form-shower").show();
+			});
+			
 			$(window).load( function() {
 				if (console && console.log && console.log.call) {
 				} else {
@@ -466,11 +472,6 @@
 					document.getElementById(other_id + '_form_fields').style.display = 'block';
 				}
 			}
-			function onchange_mode_handler(obj) {
-				$("#" + $(this).val()).show().siblings().hide();
-				$("#form-shower").show();
-			}
-
 		</script>
 	</body>
 </html>
