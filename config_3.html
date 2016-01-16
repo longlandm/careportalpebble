@@ -256,7 +256,11 @@
 		<script type='text/javascript'>
 
 			$("#mode").on("change", function() {
-				$("#" + $(this).val()).show().siblings().hide();
+				if ($("#mode option:selected").val() == "Nightscout") {
+					$("#Nightscout").show().siblings().hide();
+				} else if ($("#mode option:selected").val() == "US_Share") {
+					$("#US_Share").show().siblings().hide();
+				}
 				$("#form-shower").show();
 			});
 			
